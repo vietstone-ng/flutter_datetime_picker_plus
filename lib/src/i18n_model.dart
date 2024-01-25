@@ -1,4 +1,5 @@
 enum LocaleType {
+  ro,
   en,
   fa,
   zh,
@@ -25,7 +26,7 @@ enum LocaleType {
   id,
   bg,
   eu,
-  cat,
+  ca,
   th,
   si,
   no,
@@ -40,6 +41,42 @@ enum LocaleType {
 }
 
 final _i18nModel = <LocaleType, Map<String, Object>>{
+  LocaleType.ro: {
+    'cancel': 'Anulare',
+    'done': 'Confirmare',
+    'today': 'Astăzi',
+    'monthShort': [
+      'Ian',
+      'Feb',
+      'Mar',
+      'Apr',
+      'Mai',
+      'Iunie',
+      'Iulie',
+      'Aug',
+      'Sept',
+      'Oct',
+      'Noiem',
+      'Dec'
+    ],
+    'monthLong': [
+      'Ianuarie',
+      'Februarie',
+      'Martie',
+      'Aprilie',
+      'Mai',
+      'Iunie',
+      'Iulie',
+      'August',
+      'Septembrie',
+      'Octombrie',
+      'Noiembrie',
+      'Decembrie'
+    ],
+    'day': ['Lun', 'Mar', 'Mie', 'Joi', 'Vin', 'Sâm', 'Dum'],
+    'am': 'AM',
+    'pm': 'PM'
+  },
   LocaleType.kh: {
     'cancel': 'បោះបង់',
     'done': 'រួចរាល់',
@@ -1089,7 +1126,7 @@ final _i18nModel = <LocaleType, Map<String, Object>>{
     'am': 'AM',
     'pm': 'PM'
   },
-  LocaleType.cat: {
+  LocaleType.ca: {
     // catalan
     'cancel': 'Cancel·la',
     'done': 'Confirmar',
@@ -1449,7 +1486,15 @@ final _i18nModel = <LocaleType, Map<String, Object>>{
       'नवम्बर',
       'दिसम्बर'
     ],
-    'day': ['सोमवार', 'मंगलवार', 'बुधवार', 'गुरूवार', 'शुक्रवार', 'शनिवार', 'रविवार का दिन'],
+    'day': [
+      'सोमवार',
+      'मंगलवार',
+      'बुधवार',
+      'गुरूवार',
+      'शुक्रवार',
+      'शनिवार',
+      'रविवार का दिन'
+    ],
     'am': 'सुबह',
     'pm': 'दोपहर'
   },
