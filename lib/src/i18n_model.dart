@@ -1,4 +1,5 @@
 enum LocaleType {
+  hu,
   ro,
   en,
   fa,
@@ -41,6 +42,42 @@ enum LocaleType {
 }
 
 final _i18nModel = <LocaleType, Map<String, Object>>{
+  LocaleType.hu: {
+    'cancel': 'Mégse',
+    'done': 'Kész',
+    'today': 'Ma',
+    'monthShort': [
+      'jan',
+      'feb',
+      'már',
+      'ápr',
+      'máj',
+      'jún',
+      'júl',
+      'aug',
+      'szept',
+      'okt',
+      'nov',
+      'dec'
+    ],
+    'monthLong': [
+      'január',
+      'február',
+      'március',
+      'április',
+      'május',
+      'június',
+      'július',
+      'augusztus',
+      'szeptember',
+      'október',
+      'november',
+      'december'
+    ],
+    'day': ['Hé', 'Ke', 'Sze', 'Csü', 'Pé', 'Szo', 'Vas'],
+    'am': 'DE',
+    'pm': 'DU'
+  },
   LocaleType.ro: {
     'cancel': 'Anulare',
     'done': 'Confirmare',
