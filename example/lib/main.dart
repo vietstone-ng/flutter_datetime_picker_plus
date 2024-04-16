@@ -98,7 +98,7 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final minTime = DateTime.now().subtract(Duration(hours: 1));
+    final minTime = DateTime.now().subtract(Duration(hours: 2));
     final currentTime = DateTime.now();
     final maxTime = currentTime;
 

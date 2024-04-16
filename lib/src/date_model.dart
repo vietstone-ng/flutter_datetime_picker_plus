@@ -580,6 +580,13 @@ class DateTimePickerModel extends CommonPickerModel {
         day1.day == day2.day;
   }
 
+  bool isAtSameHour(DateTime? day1, DateTime? day2) {
+    return day1 != null &&
+        day2 != null &&
+        day1.difference(day2).inHours == 0 &&
+        day1.hour == day2.hour;
+  }
+
   @override
   void setLeftIndex(int index) {
     super.setLeftIndex(index);
@@ -658,15 +665,20 @@ class DateTimePickerModel extends CommonPickerModel {
   @override
   String? rightStringAtIndex(int index) {
     if (index >= 0 && index < 60) {
-      DateTime time = currentTime.add(Duration(days: _currentLeftIndex));
-      if (isAtSameDay(minTime, time) && _currentMiddleIndex == 0) {
+      DateTime time = finalTime();
+      if (isAtSameHour(minTime, maxTime)) {
+        if (index >= 0 && index <= (maxTime!.minute - minTime!.minute)) {
+          return digits(minTime!.minute + index, 2);
+        } else {
+          return null;
+        }
+      } else if (isAtSameHour(minTime, time)) {
         if (index >= 0 && index < 60 - minTime!.minute) {
           return digits(minTime!.minute + index, 2);
         } else {
           return null;
         }
-      } else if (isAtSameDay(maxTime, time) &&
-          _currentMiddleIndex >= maxTime!.hour) {
+      } else if (isAtSameHour(maxTime, time)) {
         if (index >= 0 && index <= maxTime!.minute) {
           return digits(index, 2);
         } else {
