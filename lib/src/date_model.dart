@@ -630,7 +630,13 @@ class DateTimePickerModel extends CommonPickerModel {
   String? middleStringAtIndex(int index) {
     if (index >= 0 && index < 24) {
       DateTime time = currentTime.add(Duration(days: _currentLeftIndex));
-      if (isAtSameDay(minTime, time)) {
+      if (isAtSameDay(minTime, maxTime)) {
+        if (index >= 0 && index <= (maxTime!.hour - minTime!.hour)) {
+          return digits(minTime!.hour + index, 2);
+        } else {
+          return null;
+        }
+      } else if (isAtSameDay(minTime, time)) {
         if (index >= 0 && index < 24 - minTime!.hour) {
           return digits(minTime!.hour + index, 2);
         } else {

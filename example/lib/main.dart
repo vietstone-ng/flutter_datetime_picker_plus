@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart'
     as picker;
@@ -96,6 +98,10 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final minTime = DateTime.now().subtract(Duration(hours: 1));
+    final currentTime = DateTime.now();
+    final maxTime = currentTime;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Datetime Picker'),
@@ -175,13 +181,21 @@ class HomePage extends StatelessWidget {
                 )),
             TextButton(
                 onPressed: () {
-                  picker.DatePicker.showDateTimePicker(context,
-                      showTitleActions: true, onChanged: (date) {
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    print('confirm $date');
-                  }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
+                  picker.DatePicker.showDateTimePicker(
+                    context,
+                    showTitleActions: true,
+                    onChanged: (date) {
+                      print('change $date in time zone ' +
+                          date.timeZoneOffset.inHours.toString());
+                    },
+                    onConfirm: (date) {
+                      print('confirm $date');
+                    },
+                    // currentTime: DateTime(2008, 12, 31, 23, 12, 34),
+                    minTime: minTime,
+                    currentTime: currentTime,
+                    maxTime: maxTime,
+                  );
                 },
                 child: Text(
                   'show date time picker (English-America)',
